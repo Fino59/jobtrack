@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, type SubmitEvent } from 'react';
 
 export type ApplicationSubmitFormProps = {
   onSubmit: (application: { company: string; position: string }) => Promise<void>;
@@ -17,7 +17,7 @@ export default function ApplicationSubmitForm({ onSubmit }: ApplicationSubmitFor
   const [message, setMessage] = useState('');
   const [hasError, setHasError] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     setMessage('');
     setHasError(false);
